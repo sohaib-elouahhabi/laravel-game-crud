@@ -20,15 +20,16 @@
 <body>
 <div class="container mt-5 " >
     <div class="card">
-        <div class="card-header">Add Category </div>
+        <div class="card-header">Edit Category </div>
         <div class="card-body">
             <center>
-                <form method="post" action="{{route('addCategories')}}">
+                <form method="post" action="{{ route('updateCategory', ['id' => $updateditem->id]) }}">
                     @csrf
+                    @method('PUT')
                     <table class="mt-5">
                         <tr>
                             <td class="form-label lead" >Category Name :</td>
-                            <td><input type=text class="form-control" name="CatName" value="{{$updateditem->category_name}}"></td>
+                            <td><input type=text class="form-control" name="UpdatedCatName" value="{{$updateditem->category_name}}"></td>
                         </tr>
                         <tr>
                             <td><center><button  type="reset" class="btn btn-danger mt-3">Annuler</button></center></td>

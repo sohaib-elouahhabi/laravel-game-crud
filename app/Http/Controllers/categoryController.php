@@ -31,10 +31,16 @@ class categoryController extends Controller
     public function edit($id)
     {
         $updateditem=category::find($id);
-        return view('Category.Edit');
+        return view('Category.Edit',['updateditem' => $updateditem]);
     }
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {
+        $updateditem=category::find($id);
+        $updateditem->category_name=$request->UpdatedCatName;
+        $updateditem->save();
+        
+        return redirect()->route('listOfCategories')
+            ->with('success', 'Record updated successfully.');
 
     }
     public function delete($id)
