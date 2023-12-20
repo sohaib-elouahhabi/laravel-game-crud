@@ -38,7 +38,6 @@ class categoryController extends Controller
         $updateditem=category::find($id);
         $updateditem->category_name=$request->UpdatedCatName;
         $updateditem->save();
-        
         return redirect()->route('listOfCategories')
             ->with('success', 'Record updated successfully.');
 
