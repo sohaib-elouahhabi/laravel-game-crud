@@ -12,18 +12,20 @@
         <div class="card-body">
             <table class="table table-bordered table-striped " >
                 <tr>
-                    <th>Category</th>
+                    <th>Game</th>
+                    <th>Release Date</th>
                     <th colspan="2">
                        <center>
-                           <a class="btn btn-info" href="{{route('createCategory')}}">Ajouter</a>
+                           <a class="btn btn-info" href="">Ajouter</a>
                        </center>
                     </th>
                 </tr>
-                @foreach( $categories as $items)
+                @foreach( $listOfGames as $items)
                 <tr>
-                    <td >{{$items->category_name}}</td>
-                         <td>
+                    <td >{{$items->game_name}}</td>
+                    <td >{{$items->release_date}}</td>
 
+                         <td>
                              <form action="{{route('deleteCategory', ['id' => $items->id] )}}" method="post">
                                  @csrf
                                  <center>
@@ -31,9 +33,7 @@
                                      <button type="submit"  class="btn btn-danger" >Supprimer</button>
                                  </center>
                              </form>
-
-
-                                        </td>
+                         </td>
                                         <td>
                                             <center>
                                                 <a class="btn btn-warning" href="{{route('editCategory',['id' => $items->id])}}">Modifier</a>
@@ -41,7 +41,7 @@
                                         </td>
                 </tr>
                 @endforeach
-                {{ $categories->links('pagination::simple-bootstrap-4') }}
+
             </table>
         </div>
     </div>

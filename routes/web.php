@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\gameController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\categoryController;
 
@@ -15,7 +16,7 @@ use \App\Http\Controllers\categoryController;
 */
 
 Route::get('/', function () {
-    redirect('/categories');
+   return redirect('/categories');
 });
 
 Route::get('categories',[categoryController::class,'index'])->name('listOfCategories');
@@ -25,6 +26,10 @@ Route::get('/categories/edit/{id}',[categoryController::class,'edit'])->name('ed
 Route::put('/categories/update/{id}',[categoryController::class,'update'])->name('updateCategory');
 Route::delete('/categories/delete/{id}',[categoryController::class,'delete'])->name('deleteCategory');
 
+
+Route::get('/categories/{id}/games',[gameController::class,'index'])->name('listOfGames');
+Route::post('/games/save',[gameController::class,'store'])->name('addGames');
+Route::get('/games/create',[gameController::class,'create'])->name('createGames');
 
 Route::get('/admin', function () {
     return view('dashboard');

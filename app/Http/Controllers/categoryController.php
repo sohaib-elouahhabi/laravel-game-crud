@@ -11,7 +11,7 @@ class categoryController extends Controller
     public function index()
     {
 
-        $categories=category::all();
+        $categories=category::paginate(4);
         return view('Category.index',
         [
                 'categories'=>$categories
