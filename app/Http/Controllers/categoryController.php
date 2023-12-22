@@ -33,6 +33,7 @@ class categoryController extends Controller
         $updateditem=category::find($id);
         return view('Category.Edit',['updateditem' => $updateditem]);
     }
+
     public function update(Request $request,$id)
     {
         $updateditem=category::find($id);
@@ -40,8 +41,8 @@ class categoryController extends Controller
         $updateditem->save();
         return redirect()->route('listOfCategories')
             ->with('success', 'Record updated successfully.');
-
     }
+
     public function delete($id)
     {
         $item=category::find($id);

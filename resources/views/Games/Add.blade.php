@@ -14,22 +14,32 @@
         <div class="card-header">Add Category </div>
         <div class="card-body">
             <center>
-                <form method="post" action="{{route('')}}">
+                <form method="post" action="{{route('addGames')}}">
                     @csrf
                     <table class="mt-5">
                         <tr>
+                            <!-- Hidden input for the id -->
+                            <td><input type="hidden" name="categoryId" value="{{$categoryId }}"></td>
                             <td class="form-label lead" >Game Name :</td>
                             <td><input type=text class="form-control" name="gameName" value=""></td>
                             <td class="form-label lead" >Release Date :</td>
                             <td><input type=date class="form-control" name="releaseDate" value=""></td>
-
                         </tr>
                         <tr>
-                            <td><center><button  type="reset" class="btn btn-danger mt-3">Annuler</button></center></td>
-                            <td><center><input type=submit class="btn btn-info mt-3" value="Save"></center></td>
+                            <td>
+                                <center>
+                                    <button  type="reset" class="btn btn-danger mt-3">Annuler</button>
+                                </center>
+                            </td>
+                            <td>
+                                <center>
+                                    <input type=submit class="btn btn-info mt-3" value="Save">
+                                </center>
+                            </td>
                         </tr>
                     </table>
                 </form>
+
             </center>
         </div>
     </div>

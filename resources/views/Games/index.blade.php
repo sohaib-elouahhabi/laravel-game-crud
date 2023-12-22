@@ -14,19 +14,21 @@
                 <tr>
                     <th>Game</th>
                     <th>Release Date</th>
+
                     <th colspan="2">
                        <center>
-                           <a class="btn btn-info" href="">Ajouter</a>
+                           <a class="btn btn-info" href="{{route('createGames',['id'=>$categoryId])}}">Ajouter</a>
                        </center>
                     </th>
                 </tr>
                 @foreach( $listOfGames as $items)
                 <tr>
+                    <!-- Add a hidden input field for id -->
                     <td >{{$items->game_name}}</td>
                     <td >{{$items->release_date}}</td>
 
                          <td>
-                             <form action="{{route('deleteCategory', ['id' => $items->id] )}}" method="post">
+                             <form action="{{route('deleteGameByCategory', ['id' => $items->id] )}}" method="post">
                                  @csrf
                                  <center>
                                      @method('delete')

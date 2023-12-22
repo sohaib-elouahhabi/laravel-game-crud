@@ -27,9 +27,10 @@ Route::put('/categories/update/{id}',[categoryController::class,'update'])->name
 Route::delete('/categories/delete/{id}',[categoryController::class,'delete'])->name('deleteCategory');
 
 
-Route::get('/categories/{id}/games',[gameController::class,'index'])->name('listOfGames');
-Route::post('/games/save',[gameController::class,'store'])->name('addGames');
-Route::get('/games/create',[gameController::class,'create'])->name('createGames');
+Route::get('/categories/{id}/games',[gameController::class,'index'])->name('listOfGamesByCategory');
+Route::post('games/save',[gameController::class,'store'])->name('addGames');
+Route::get('/createGames/{id}',[gameController::class,'create'])->name('createGames');
+Route::delete('/games/delete/{id}',[gameController::class,'delete'])->name('deleteGameByCategory');
 
 Route::get('/admin', function () {
     return view('dashboard');
