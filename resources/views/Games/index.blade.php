@@ -38,7 +38,7 @@
                          </td>
                                         <td>
                                             <center>
-                                                <a class="btn btn-warning" href="{{route('editCategory',['id' => $items->id])}}">Modifier</a>
+                                                <a class="btn btn-warning" href="{{route('editGame',['id' => $items->id])}}">Modifier</a>
                                             </center>
                                         </td>
                 </tr>

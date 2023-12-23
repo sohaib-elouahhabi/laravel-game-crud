@@ -33,6 +33,26 @@ class gameController extends Controller
         $games->save();
         return redirect('/categories/'.$request->categoryId.'/games');
     }
+    public function edit($id)
+    {
+        $id=game::find($id);
+        return view('Games.Edit',
+            [
+                'updatedItem'=>$id
+            ]
+        );
+    }
+
+
+    public function update(Request $request,$id)
+    {
+        $updateditem=game::find($id);
+        $updateditem->game_name=$request->gameName;
+        $updateditem->release_date=$request->releaseDate;
+        $updateditem->save();
+        return redirect('/categories/'.$updateditem->catg_id.'/games');
+    }
+
 
     public function delete($id)
     {

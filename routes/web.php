@@ -30,6 +30,10 @@ Route::delete('/categories/delete/{id}',[categoryController::class,'delete'])->n
 Route::get('/categories/{id}/games',[gameController::class,'index'])->name('listOfGamesByCategory');
 Route::post('games/save',[gameController::class,'store'])->name('addGames');
 Route::get('/createGames/{id}',[gameController::class,'create'])->name('createGames');
+Route::get('/editGame/{id}',[gameController::class,'edit'])->name('editGame');
+Route::put('games/update/{id}',[gameController::class,'update'])->name('updateGame');
+
+
 Route::delete('/games/delete/{id}',[gameController::class,'delete'])->name('deleteGameByCategory');
 
 Route::get('/admin', function () {
